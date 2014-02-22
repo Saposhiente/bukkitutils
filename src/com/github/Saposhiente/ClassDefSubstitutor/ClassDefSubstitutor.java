@@ -36,7 +36,7 @@ public class ClassDefSubstitutor {
     /**
      * Start of the template for a blank class to use in class substitution.
      */
-    static final byte[] classTemplateStartBytes = new byte[]{-54, -2, -70, -66, 0, 0, 0, 51, 0, 5, 1}; //todo: remove last zero and increase max classname size to 65536
+    static final byte[] classTemplateStartBytes = new byte[]{-54, -2, -70, -66, 0, 0, 0, 51, 0, 5, 1};
     /**
      * End of the template for a blank class to use in class substitution.
      * @see #classTemplateStartBytes

@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.github.Saposhiente.ClassDefSubstitutor;
 
 import java.io.IOException;
@@ -35,11 +31,15 @@ public class SubstitutorTester {
         logger.log(Level.INFO, "{0}", java.util.Arrays.equals(surroundingBytes[0], ClassDefSubstitutor.classTemplateStartBytes));
         logger.log(Level.INFO, "{0}", java.util.Arrays.equals(surroundingBytes[1], ClassDefSubstitutor.classTemplateEndBytes));
     }
-    //Use the code below to generate the correct values for classTemplateStartBytes and classTemplateEndBytes
-    public static final String randomInternalName = "LYgltwEOOED/gNQrfssiDjSVJuTKg/ZHjrZuDPbkurpigGquM/ToHaWxebTukXoAU"; //random class name inputted and searched for by getClassTemplate()
-    public static byte[][] getClassTemplate() throws IOException { //requires ASM, produces the correct values for classTemplateStartBytes and classTemplateEndBytes
+    private static final String randomInternalName = "LYgltwEOOED/gNQrfssiDjSVJuTKg/ZHjrZuDPbkurpigGquM/ToHaWxebTukXoAU"; //random class name inputted and searched for by getClassTemplate()
+    /**
+     * requires ASM, determines the correct values for classTemplateStartBytes and classTemplateEndBytes
+     * @return byte[][]{classTemplateStartBytes, classTemplateEndBytes}
+     * @throws IOException
+     */
+    public static byte[][] getClassTemplate() throws IOException { 
         final String targetBytecodeName = randomInternalName.substring(1);
-        final String targetClassFullName = randomInternalName.replace('/', '.');//todo: maybe have to manually pattern match
+        final String targetClassFullName = randomInternalName.replace('/', '.');
         final String targetClassName = targetClassFullName.substring(1);
         final org.objectweb.asm.ClassWriter writer = new org.objectweb.asm.ClassWriter(0);
         //writer.visit(51, 33, targetBytecodeName, null, "java/lang/Object", new String[]{});//may break with Java updates, use log below for correct numbers
